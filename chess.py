@@ -99,7 +99,7 @@ mapper = {'P':[[9,9,9,9,9,9,9,9],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1]
 ],
-'k':[[1.1,1.1,1.05,1,1,1.05,1.1,1.1],
+'k':[[1.5,1.5,1.05,1,1,1.05,1.5,1.5],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
@@ -116,7 +116,7 @@ mapper = {'P':[[9,9,9,9,9,9,9,9],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
-    [1.1,1.1,1.05,1,1,1.05,1.1,1.1]
+    [1.5,1.5,1.05,1,1,1.05,1.5,1.5]
 ]}
 
 marking = 'abcdefgh'
@@ -126,7 +126,10 @@ inCheck = False
 counter = 0
 bp = {}
 wp = {}
+canCastle = {'wk':'yes','wq':'yes','bk':'yes','bq':'yes'}
+drishti = {'b':False,'w':False}
 pointDist = {'p':-1,'r':-5,'b':-3.2,'n':-3,'q':-9,'k':-1,'P':1,'R':5,'B':3.2,'N':3,'Q':9,'K':1}
+drishti = {'bk':False,'bq':False,'wk':False,'wq':False}
 
 app = FastAPI()
 
@@ -147,6 +150,7 @@ async def upload_file(
     global bp
     global wp
     global hashing
+    global canCastle
     print(">>> /upload called. Starting computation.")
     fen = fenn
     board.clear()
@@ -160,6 +164,7 @@ async def upload_file(
     if starting == 'true':
         staleMate.clear()
         staleMate[hashing] = 1
+        canCastle = {'wk':'yes','wq':'yes','bk':'yes','bq':'yes'}
     # if hashing in staleMate:
     #     staleMate[hashing] += 1
     # print(fen)
@@ -167,11 +172,12 @@ async def upload_file(
         chance = True
     else:
         chance = False
+    legalMoves(chance == False,False)
     leg = legalMoves(chance,False)
     # print(leg)
     res = compute(chance,3,'init',leg)
     move = res[1]
-    # print(move,res)
+    print(move,res)
     j = marking.index(move[0])
     y = marking.index(move[3])
     i = 8 - int(move[1])
@@ -193,6 +199,24 @@ async def upload_file(
     # print(counter)
     # print(staleMate)
     # print(res)
+    if board[i][j].lower() == 'r':
+        if board[i][j].islower():
+            if j == 0:
+                canCastle['bq'] = 'no'
+            elif j == 7:
+                canCastle['bk'] = 'no'
+        else:
+            if j == 0:
+                canCastle['wq'] = 'no'
+            elif j == 7:
+                canCastle['wk'] = 'no'
+    if board[i][j].lower() == 'k':
+        if board[i][j].islower():
+            canCastle['bk'] = 'no'
+            canCastle['bq'] = 'no'
+        else:
+            canCastle['wk'] = 'no'
+            canCastle['wq'] = 'no'
     return {'move':res[1]}
 
 def fenConvert(f):
@@ -455,19 +479,60 @@ def king(i,j):
             if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
                 lmoves.append([l,m])
 
+    if piece.islower(): 
+        if canCastle['bk'] == 'yes' and board[i][j+1] == ' ' and board[i][j+2] == ' ' and drishti['bk'] == False:
+            lmoves.append([i,j+2])
+        if canCastle['bq'] == 'yes' and board[i][j-1] == ' ' and board[i][j-2] == ' ' and board[i][j-3] == ' ' and drishti['bq'] == False:
+            lmoves.append([i,j-2])
+    else:
+        if canCastle['wk'] == 'yes' and board[i][j+1] == ' ' and board[i][j+2] == ' ' and drishti['wk'] == False:
+            lmoves.append([i,j+2])
+        if canCastle['wq'] == 'yes' and board[i][j-1] == ' ' and board[i][j-2] == ' ' and board[i][j-3] == ' ' and drishti['wq'] == False:
+            lmoves.append([i,j-2])
     return lmoves
 
-def moveMaker(n,i,j,x,y,prom):
+def moveMaker(n,i,j,x,y,prom,cas):
     if prom != n:
         return marking[j] + str(8 - i) + n + marking[y] + str(8 - x) + prom
+    if cas:
+        return marking[j] + str(8 - i) + n + marking[y] + str(8 - x) + 'r' + str(j)
     return marking[j] + str(8 - i) + n + marking[y] + str(8 - x)
 
-def undoMove(i,j,x,y,bij,remvp,move,cl):
+def undoMove(i,j,x,y,bij,remvp,move,cl,dept):
     global hashing
     global points
-    staleMate[hashing] -= 1
-    if staleMate[hashing] == 0:
-        del staleMate[hashing]
+    if len(move) == 7 or len(move) == 0:
+        print(board[i][j],board[x][y])
+    if board[i][j].lower() == 'r':
+        if board[i][j].islower():
+            if j == 0:
+                if canCastle['bq'] == dept:
+                    canCastle['bq'] = 'yes'
+            elif j == 7:
+                if canCastle['bk'] == dept:
+                    canCastle['bk'] = 'yes'
+        else:
+            if j == 0:
+                if canCastle['wq'] == dept:
+                    canCastle['wq'] = 'yes'
+            elif j == 7:
+                if canCastle['wk'] == dept:
+                    canCastle['wk'] = 'yes'
+    if board[i][j].lower() == 'k':
+        if board[i][j].islower():
+            if canCastle['bk'] == dept:
+                canCastle['bk'] = 'yes'
+            if canCastle['bq'] == dept:
+                canCastle['bq'] = 'yes'
+        else:
+            if canCastle['wk'] == dept:
+                canCastle['wk'] = 'yes'
+            if canCastle['wq'] == dept:
+                canCastle['wq'] = 'yes'
+    if len(move) >= 5:
+        staleMate[hashing] -= 1
+        if staleMate[hashing] == 0:
+            del staleMate[hashing]
     if remvp != ' ':
         if remvp.islower():
             bp[remvp].append([x,y])
@@ -475,7 +540,7 @@ def undoMove(i,j,x,y,bij,remvp,move,cl):
             wp[remvp].append([x,y])
         hashing ^= zobrist[pos.index(remvp)][y + x * 8]
         points += pointDist[remvp]*mapper[remvp][x][y]
-    if len(move) == 6:
+    if len(move) == 6 and move[2].lower() == 'p':
         if cl :
             board[i][j] = 'p'
         else:
@@ -493,10 +558,53 @@ def undoMove(i,j,x,y,bij,remvp,move,cl):
     else:
         wp[board[i][j]].append([i,j])
         wp[bij].remove([x,y])
+    if len(move) == 7:
+            jr = 0
+            yr = 3
+            if y > j:
+                jr = 7
+                yr = 5
+            remvi = ' '
+            print(i,jr,x,yr,board[i][jr])
+            undoMove(i,jr,x,yr,board[i][yr],remvi,'',cl,dept)
+
+def makeMove(i,j,x,y,bij,remvp):
+    global hashing
+    global points
+
+    if remvp != ' ':
+        if remvp.islower():
+            bp[remvp].remove([x,y])
+        else:
+            wp[remvp].remove([x,y])
+        hashing ^= zobrist[pos.index(remvp)][y + x * 8]
+        points -= pointDist[remvp]*mapper[remvp][x][y]
+        
+    if board[i][j].islower():
+        bp[board[i][j]].remove([i,j])
+        bp[bij].append([x,y])
+    else:
+        wp[board[i][j]].remove([i,j])
+        wp[bij].append([x,y])
+    if bij == 'k' and abs(y-j) == 2:
+        print(i,j,x,y,bij,remvp)
+    hashing ^= zobrist[pos.index(board[i][j])][j + i * 8]
+    hashing ^= zobrist[pos.index(bij)][y + x * 8]
+    points += pointDist[bij]*mapper[bij][x][y]
+    points -= pointDist[board[i][j]]*mapper[board[i][j]][i][j]
+    board[x][y] = str(bij)
+    board[i][j] = ' '
 
 def legalMoves(cl,check):
     global inCheck
     global points
+    global drishti
+    if cl:
+        drishti['wk'] = 'yes'
+        drishti['wq'] = 'yes'
+    else:
+        drishti['bk'] = 'yes'
+        drishti['bq'] = 'yes'
     lega = []
     if cl:
         it = copy.deepcopy(bp)
@@ -523,6 +631,16 @@ def legalMoves(cl,check):
             for k in ls:
                 if board[k[0]][k[1]].lower() == 'k': 
                     return 'Illegal'
+                if k[0] == 0 and key.isupper():
+                    if k[1] == 1 or k[1] == 2 or k[1] == 3 or k[1] == 4:
+                        drishti['bq'] = True
+                    if k[1] == 6 or k[1] == 5 or k[1] == 4:
+                        drishti['bk'] = True
+                if k[0] == 7 and key.islower():
+                    if k[1] == 1 or k[1] == 2 or k[1] == 3 or k[1] == 4:
+                        drishti['wq'] = True
+                    if k[1] == 6 or k[1] == 5 or k[1] == 4:
+                        drishti['wk'] = True
                 iterSequence = key
                 if key == 'p' and i == 6:
                     iterSequence = 'nbqr'
@@ -530,11 +648,15 @@ def legalMoves(cl,check):
                     iterSequence = 'NBQR'
                 # print(iterSequence)
                 for it in iterSequence:
+                    castle = False
                     points -= pointDist[board[i][j]]*mapper[board[i][j]][i][j]
                     points += pointDist[it]*mapper[it][k[0]][k[1]]
+                    if key.lower() == 'k':
+                        if abs(k[1] - j) == 2:
+                            castle = True
                     if board[k[0]][k[1]] != ' ':
                         points -= pointDist[board[k[0]][k[1]]]*mapper[board[k[0]][k[1]]][k[0]][k[1]]
-                    lega.append((moveMaker(board[i][j],i,j,k[0],k[1],it),points))
+                    lega.append((moveMaker(board[i][j],i,j,k[0],k[1],it,castle),points))
                     points += pointDist[board[i][j]]*mapper[board[i][j]][i][j]
                     points -= pointDist[it]*mapper[it][k[0]][k[1]]
                     if board[k[0]][k[1]] != ' ':
@@ -602,32 +724,49 @@ def compute(cl,depth,curv,leg):
         bij = move[2]
         if len(move) == 6:
             bij = move[5]
-        # print(move,bij,wp)
-        if remvp != ' ':
-            if remvp.islower():
-                bp[remvp].remove([x,y])
+        if board[i][j].lower() == 'r':
+            if board[i][j].islower():
+                if j == 0:
+                    if canCastle['bq'] == 'yes':
+                        canCastle['bq'] = depth
+                elif j == 7:
+                    if canCastle['bk'] == 'yes':
+                        canCastle['bk'] = depth
             else:
-                wp[remvp].remove([x,y])
-            hashing ^= zobrist[pos.index(remvp)][y + x * 8]
-            points -= pointDist[remvp]*mapper[remvp][x][y]
-            
-        if board[i][j].islower():
-            bp[board[i][j]].remove([i,j])
-            bp[bij].append([x,y])
-        else:
-            wp[board[i][j]].remove([i,j])
-            wp[bij].append([x,y])
-        hashing ^= zobrist[pos.index(board[i][j])][j + i * 8]
-        hashing ^= zobrist[pos.index(bij)][y + x * 8]
-        points += pointDist[bij]*mapper[bij][x][y]
-        points -= pointDist[board[i][j]]*mapper[board[i][j]][i][j]
-        board[x][y] = str(bij)
-        board[i][j] = ' '
+                if j == 0:
+                    if canCastle['wq'] == 'yes':
+                        canCastle['wq'] = depth
+                elif j == 7:
+                    if canCastle['wk'] == 'yes':
+                        canCastle['wk'] = depth
+        if board[i][j].lower() == 'k':
+            if board[i][j].islower():
+                # print(canCastle, 'check pannunga')
+                if canCastle['bk'] == 'yes':
+                    canCastle['bk'] = depth
+                if canCastle['bq'] == 'yes':
+                    canCastle['bq'] = depth
+            else:
+                if canCastle['wk'] == 'yes':
+                    canCastle['wk'] = depth
+                if canCastle['wq'] == 'yes':
+                    canCastle['wq'] = depth
+        makeMove(i,j,x,y,bij,remvp)
+        if len(move) == 7:
+            jr = 0
+            yr = 3
+            if y > j:
+                jr = 7
+                yr = 5
+            remvp = ' '
+            makeMove(i,jr,x,yr,board[i][jr],remvp)
+            # print(canCastle,i,j,board)
+        # print(move,bij,wp)
         # print(max(staleMate.values()))
         if hashing in staleMate:
             staleMate[hashing] += 1
             if staleMate[hashing] >= 3:
-                undoMove(i,j,x,y,bij,remvp,move,cl)
+                undoMove(i,j,x,y,bij,remvp,move,cl,depth)
                 return [0,move]
         else:
             staleMate[hashing] = 1
@@ -646,7 +785,7 @@ def compute(cl,depth,curv,leg):
             if r != 'nope' and r[0] != 'nope' and r != 'WOWW':
                 r = r[0]
             else:
-                undoMove(i,j,x,y,bij,remvp,move,cl)
+                undoMove(i,j,x,y,bij,remvp,move,cl,depth)
                 continue
         else:
             if legalMoves(cl == False,False) != 'Illegal':
@@ -654,18 +793,18 @@ def compute(cl,depth,curv,leg):
                 checkMate = False
                 # print(move)
             else:
-                undoMove(i,j,x,y,bij,remvp,move,cl)
+                undoMove(i,j,x,y,bij,remvp,move,cl,depth)
                 continue
         if curv != 'init':
             if cl == False:
                 if r > curv:
-                    undoMove(i,j,x,y,bij,remvp,move,cl)
+                    undoMove(i,j,x,y,bij,remvp,move,cl,depth)
                     return 'nope'
             else:
                 if r < curv:
-                    undoMove(i,j,x,y,bij,remvp,move,cl)
+                    undoMove(i,j,x,y,bij,remvp,move,cl,depth)
                     return 'nope'
-        undoMove(i,j,x,y,bij,remvp,move,cl)
+        undoMove(i,j,x,y,bij,remvp,move,cl,depth)
         if mn == 'nope':
             mn = r
             mnm = move
