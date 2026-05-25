@@ -10,7 +10,7 @@ zobrist = [[random.getrandbits(64) for _ in range(64)] for _ in range(12)]
 hashing = 0
 pos = 'pPrRnNbBqQkK'
 
-mapper = {'P':[[9,9,9,9,9,9,9,9],
+mapper = {'P':[[4.7,4.7,4.7,4.7,4.7,4.7,4.7,4.7],
     [1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2],
     [1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1],
     [1.05,1.05,1.05,1.05,1.05,1.05,1.05,1.05],
@@ -25,25 +25,25 @@ mapper = {'P':[[9,9,9,9,9,9,9,9],
     [1.05,1.05,1.05,1.05,1.05,1.05,1.05,1.05],
     [1.1,1.1,1.1,1.1,1.1,1.1,1.1,1.1],
     [1.2,1.2,1.2,1.2,1.2,1.2,1.2,1.2],
-    [9,9,9,9,9,9,9,9]
+    [4.7,4.7,4.7,4.7,4.7,4.7,4.7,4.7]
 ],
-'n':[[0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8],
-    [0.8,1,1,1,1,1,1,0.8],
-    [0.8,1.05,1.05,1.05,1.05,1.05,1.05,0.8],
-    [0.8,1.05,1.1,1.1,1.1,1.1,1.05,0.8],
-    [0.8,1.05,1.1,1.1,1.1,1.1,1.05,0.8],
-    [0.8,1.05,1.05,1.05,1.05,1.05,1.05,0.8],
-    [0.8,1,1,1,1,1,1,0.8],
-    [0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8]
+'n':[[0.95,0.95,0.95,0.95,0.95,0.95,0.95,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,0.95,0.95,0.95,0.95,0.95,0.95,0.95]
 ],
-'N':[[0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8],
-    [0.8,1,1,1,1,1,1,0.8],
-    [0.8,1.05,1.05,1.05,1.05,1.05,1.05,0.8],
-    [0.8,1.05,1.1,1.1,1.1,1.1,1.05,0.8],
-    [0.8,1.05,1.1,1.1,1.1,1.1,1.05,0.8],
-    [0.8,1.05,1.05,1.05,1.05,1.05,1.05,0.8],
-    [0.8,1,1,1,1,1,1,0.8],
-    [0.8,0.8,0.8,0.8,0.8,0.8,0.8,0.8]
+'N':[[0.95,0.95,0.95,0.95,0.95,0.95,0.95,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,1,1,1,1,1,1,0.95],
+    [0.95,0.95,0.95,0.95,0.95,0.95,0.95,0.95]
 ],
 'b':[[1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
@@ -83,19 +83,19 @@ mapper = {'P':[[9,9,9,9,9,9,9,9],
 ],
 'q':[[1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
-    [1,1.05,1.05,1.05,1.05,1.05,1.05,1],
-    [1,1.05,1.1,1.1,1.1,1.1,1.05,1],
-    [1,1.05,1.1,1.1,1.1,1.1,1.05,1],
-    [1,1.05,1.05,1.05,1.05,1.05,1.05,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1]
 ],
 'Q':[[1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
-    [1,1.05,1.05,1.05,1.05,1.05,1.05,1],
-    [1,1.05,1.1,1.1,1.1,1.1,1.05,1],
-    [1,1.05,1.1,1.1,1.1,1.1,1.05,1],
-    [1,1.05,1.05,1.05,1.05,1.05,1.05,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
+    [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1],
     [1,1,1,1,1,1,1,1]
 ],
@@ -118,19 +118,24 @@ mapper = {'P':[[9,9,9,9,9,9,9,9],
     [1,1,1,1,1,1,1,1],
     [1.5,1.5,1.05,1,1,1.05,1.5,1.5]
 ]}
-
+numberMap = {'a':0,'b':1,'c':2,'d':3,'e':4,'f':5,'g':6,'h':7}
 marking = 'abcdefgh'
 board = []
 points = 0
-inCheck = False
+bcheck = False
+wcheck = False
+bl = []
+wl = []
 counter = 0
 bp = {}
 wp = {}
-canCastle = {'wk':'yes','wq':'yes','bk':'yes','bq':'yes'}
-drishti = {'b':False,'w':False}
+canCastle = {'wk':'no','wq':'no','bk':'no','bq':'no'}
 pointDist = {'p':-1,'r':-5,'b':-3.2,'n':-3,'q':-9,'k':-1,'P':1,'R':5,'B':3.2,'N':3,'Q':9,'K':1}
-drishti = {'bk':False,'bq':False,'wk':False,'wq':False}
-
+wattack = []
+battack = []
+will = {}
+bill = {}
+depth = 6
 app = FastAPI()
 
 app.add_middleware(
@@ -151,6 +156,7 @@ async def upload_file(
     global wp
     global hashing
     global canCastle
+    global depth
     print(">>> /upload called. Starting computation.")
     fen = fenn
     board.clear()
@@ -164,7 +170,7 @@ async def upload_file(
     if starting == 'true':
         staleMate.clear()
         staleMate[hashing] = 1
-        canCastle = {'wk':'yes','wq':'yes','bk':'yes','bq':'yes'}
+    canCastle = {'wk':'no','wq':'no','bk':'no','bq':'no'}
     # if hashing in staleMate:
     #     staleMate[hashing] += 1
     # print(fen)
@@ -175,9 +181,10 @@ async def upload_file(
     legalMoves(chance == False,False)
     leg = legalMoves(chance,False)
     # print(leg)
-    res = compute(chance,3,'init',leg)
+    res = compute(chance,depth,'init',leg)
     move = res[1]
-    print(move,res)
+    print(res)
+    # print(move,res,canCastle)
     j = marking.index(move[0])
     y = marking.index(move[3])
     i = 8 - int(move[1])
@@ -198,7 +205,7 @@ async def upload_file(
         staleMate[hashing] = 1
     # print(counter)
     # print(staleMate)
-    # print(res)
+    print(res)
     if board[i][j].lower() == 'r':
         if board[i][j].islower():
             if j == 0:
@@ -222,9 +229,21 @@ async def upload_file(
 def fenConvert(f):
     global points
     global hashing
+    points = 0
     board.append([])
     sqCount = 0
-    for i in f:
+    fe = f.split()
+    iterF = fe[0]
+    if len(fe) > 1:
+        if ('K' in fe[1]):
+            canCastle['wk'] = 'yes'
+        if ('k' in fe[1]):
+            canCastle['bk'] = 'yes'
+        if ('Q' in fe[1]):
+            canCastle['wq'] = 'yes'
+        if ('q' in fe[1]):
+            canCastle['bq'] = 'yes'
+    for i in iterF:
         if i == '/':
             board.append([])
         else:
@@ -240,8 +259,15 @@ def fenConvert(f):
                 elif i in wp:
                     wp[i].append([len(board)-1,len(board[-1])])
                 board[-1].append(i)
+    if bp['k'][0] == [0,4]:
+        if [0,0] not in bp['r']:
+            canCastle
                 
 def pawn(i,j):
+    global wcheck
+    global bcheck
+    global wl
+    global bl
     lmoves = []
     piece = board[i][j]
     # print(piece,i,j)
@@ -253,11 +279,38 @@ def pawn(i,j):
         if board[k][j] == ' ':
             lmoves.append([k,j])
         p = j + 1
-        if p < 8 and board[k][p] != ' ' and board[k][p].islower() != piece.islower():
-            lmoves.append([k,p])
+        if p < 8:
+            if board[k][p] != ' ':
+                if board[k][p].islower() != piece.islower():
+                    lmoves.append([k,p])
+                    if board[k][p].lower() == 'k':
+                        if piece.islower():
+                            wcheck = True
+                            wl.append([i,j])
+                        else:
+                            bcheck = True
+                            bl.append([i,j])
+            if s == -1:
+                wattack.append([k,p])
+            else:
+                battack.append([k,p])
+
         p = j - 1
-        if p >= 0 and board[k][p] != ' ' and board[k][p].islower() != piece.islower():
-            lmoves.append([k,p])
+        if p >= 0:
+            if board[k][p] != ' ':
+                if board[k][p].islower() != piece.islower():
+                    lmoves.append([k,p])
+                    if board[k][p].lower() == 'k':
+                        if piece.islower():
+                            wcheck = True
+                            wl.append([i,j])
+                        else:
+                            bcheck = True
+                            bl.append([i,j])
+            if s == -1:
+                wattack.append([k,p])
+            else:
+                battack.append([k,p])
         if s > 0 and i == 1 and board[i + 1][j] == ' ' and board[i + 2][j] == ' ':
             lmoves.append([i+2,j])
         if s < 0 and i == 6 and board[i - 1][j] == ' ' and board[i - 2][j] == ' ':
@@ -265,110 +318,436 @@ def pawn(i,j):
     return lmoves
 
 def straight(i,j):
+    global wcheck
+    global bcheck
+    global wl
+    global bl
+    global will
+    global bill
     lmoves = []
     piece = board[i][j]
     l = i - 1
     m = j
+    pieceCounter = 'a'
+    path = [[i,j]]
     while l >= 0:
+        path.append([l,m])
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         l -= 1
     l = i + 1
     m = j
+    pieceCounter = 'a'
+    path = [[i,j]]
+
+
     while l < 8:
+        path.append([l,m])
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if  pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         l += 1
     l = i
     m = j - 1
+    pieceCounter = 'a'
+    path = [[i,j]]
+
     while m >= 0:
+        path.append([l,m])
+
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if  pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         m -= 1
     l = i 
     m = j + 1
+    pieceCounter = 'a'
+    path = [[i,j]]
+
     while m < 8:
+        path.append([l,m])
+
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if  pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         m += 1
     return lmoves
 
 def diagnol(i,j):
+    global wcheck
+    global bcheck
+    global wl
+    global bl
+    global will
+    global bill
     piece = board[i][j]
     lmoves = []
 
     l = i - 1
     m = j - 1
+    pieceCounter = 'a'
+    path = [[i,j]]
 
     while l >= 0 and m >= 0:
+        path.append([l,m])
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         l -= 1
         m -= 1
 
     l = i - 1
     m = j + 1
+    pieceCounter = 'a'
+    path = [[i,j]]
+
 
     while l >= 0 and m < 8:
+        path.append([l,m])
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         l -= 1
         m += 1
 
     l = i + 1
     m = j + 1
+    pieceCounter = 'a'
+    path = [[i,j]]
+
 
     while l < 8 and m < 8:
+        path.append([l,m])
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         l += 1
         m += 1
 
     l = i + 1
     m = j - 1
+    pieceCounter = 'a'
+    path = [[i,j]]
+
     
     while l < 8 and m >= 0:
+        path.append([l,m])
         if board[l][m] == ' ':
-            lmoves.append([l,m])
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         elif board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
-            break
+            path.pop()
+            if pieceCounter == 'a':
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend(path)
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend(path)
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+                # print(l,m,board[l][m])
+                pieceCounter = m + l * 8
+            else:
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        will[pieceCounter] = path
+                    else:
+                        bill[pieceCounter]=path
+                break
         else:
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
             break
         l += 1
         m -= 1
@@ -376,6 +755,12 @@ def diagnol(i,j):
     return lmoves
 
 def knight(i,j):
+    global wcheck
+    global bcheck
+    global wl
+    global bl
+    global will
+    global bill
     piece = board[i][j]
     lmoves = []
 
@@ -386,23 +771,187 @@ def knight(i,j):
     if l >= 0:
         m -= 1
         if m >= 0:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         m += 2
         if m < 8:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
     l += 4
     m = j
     if l < 8:
         m -= 1
         if m >= 0:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         m += 2
         if m < 8:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
 
     m = j
     l = i
@@ -411,23 +960,187 @@ def knight(i,j):
     if m >= 0:
         l -= 1
         if l >= 0:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         l += 2
         if l < 8:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
     m += 4
     l = i
     if m < 8:
         l -= 1
         if l >= 0:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
         l += 2
         if l < 8:
-            if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if board[l][m] == ' ':
                 lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            elif board[l][m].islower() != piece.islower():
+                lmoves.append([l,m])
+                if board[l][m].lower() == 'k':
+                    if piece.islower():
+                        if wcheck:
+                            wl = []
+                        else:
+                            wcheck = True
+                            wl.extend([[i,j]])
+                    else:
+                        if bcheck:
+                            bl = []
+                        else:
+                            bcheck = True
+                            bl.extend([[i,j]])
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
+            else:
+                if piece.isupper():
+                    wattack.append([l,m])
+                else:
+                    battack.append([l,m])
 
     return lmoves
 
@@ -441,15 +1154,30 @@ def king(i,j):
     l -= 1
     if l >= 0:
         if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
                 lmoves.append([l,m])
+        if piece.isupper():
+            wattack.append([l,m])
+        else:
+            battack.append([l,m])
         m -= 1
         if m >= 0:
             if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
-                lmoves.append([l,m])
+                if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
+                    lmoves.append([l,m])
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
         m += 2
         if m < 8:
             if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
-                lmoves.append([l,m])
+                if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
+                    lmoves.append([l,m])
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
 
     l += 1
     m = j
@@ -457,11 +1185,21 @@ def king(i,j):
     m -= 1
     if m >= 0:
         if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
+            if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
+                lmoves.append([l,m])
+        if piece.isupper():
+            wattack.append([l,m])
+        else:
+            battack.append([l,m])
     m += 2
     if m < 8:
         if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
-            lmoves.append([l,m])
+            if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
+                    lmoves.append([l,m])
+        if piece.isupper():
+            wattack.append([l,m])
+        else:
+            battack.append([l,m])
 
     l = i
     m = j
@@ -469,25 +1207,39 @@ def king(i,j):
     l += 1
     if l < 8:
         if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
+            if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
                 lmoves.append([l,m])
+        if piece.isupper():
+            wattack.append([l,m])
+        else:
+            battack.append([l,m])
         m -= 1
         if m >= 0:
             if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
-                lmoves.append([l,m])
+                if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
+                    lmoves.append([l,m])
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
         m += 2
         if m < 8:
             if board[l][m] == ' ' or board[l][m].islower() != piece.islower():
-                lmoves.append([l,m])
-
+                if (piece.islower() and [l,m] not in wattack) or (piece.islower() == False and [l,m] not in battack):
+                    lmoves.append([l,m])
+            if piece.isupper():
+                wattack.append([l,m])
+            else:
+                battack.append([l,m])
     if piece.islower(): 
-        if canCastle['bk'] == 'yes' and board[i][j+1] == ' ' and board[i][j+2] == ' ' and drishti['bk'] == False:
+        if canCastle['bk'] == 'yes' and board[i][j+1] == ' ' and board[i][j+2] == ' ' and [i,j+1] not in wattack and [i,j+2] not in wattack:
             lmoves.append([i,j+2])
-        if canCastle['bq'] == 'yes' and board[i][j-1] == ' ' and board[i][j-2] == ' ' and board[i][j-3] == ' ' and drishti['bq'] == False:
+        if canCastle['bq'] == 'yes' and board[i][j-1] == ' ' and board[i][j-2] == ' ' and board[i][j-3] == ' ' and [i,j-1] not in wattack and [i,j-2] not in wattack and [i,j-3] not in wattack:
             lmoves.append([i,j-2])
     else:
-        if canCastle['wk'] == 'yes' and board[i][j+1] == ' ' and board[i][j+2] == ' ' and drishti['wk'] == False:
+        if canCastle['wk'] == 'yes' and board[i][j+1] == ' ' and board[i][j+2] == ' ' and [i,j+1] not in battack and [i,j+2] not in battack:
             lmoves.append([i,j+2])
-        if canCastle['wq'] == 'yes' and board[i][j-1] == ' ' and board[i][j-2] == ' ' and board[i][j-3] == ' ' and drishti['wq'] == False:
+        if canCastle['wq'] == 'yes' and board[i][j-1] == ' ' and board[i][j-2] == ' ' and board[i][j-3] == ' ' and [i,j-1] not in wattack and [i,j-2] not in wattack and [i,j-3] not in wattack:
             lmoves.append([i,j-2])
     return lmoves
 
@@ -501,10 +1253,8 @@ def moveMaker(n,i,j,x,y,prom,cas):
 def undoMove(i,j,x,y,bij,remvp,move,cl,dept):
     global hashing
     global points
-    if len(move) == 7 or len(move) == 0:
-        print(board[i][j],board[x][y])
-    if board[i][j].lower() == 'r':
-        if board[i][j].islower():
+    if board[x][y].lower() == 'r':
+        if board[x][y].islower():
             if j == 0:
                 if canCastle['bq'] == dept:
                     canCastle['bq'] = 'yes'
@@ -518,8 +1268,8 @@ def undoMove(i,j,x,y,bij,remvp,move,cl,dept):
             elif j == 7:
                 if canCastle['wk'] == dept:
                     canCastle['wk'] = 'yes'
-    if board[i][j].lower() == 'k':
-        if board[i][j].islower():
+    if board[x][y].lower() == 'k':
+        if board[x][y].islower():
             if canCastle['bk'] == dept:
                 canCastle['bk'] = 'yes'
             if canCastle['bq'] == dept:
@@ -565,12 +1315,13 @@ def undoMove(i,j,x,y,bij,remvp,move,cl,dept):
                 jr = 7
                 yr = 5
             remvi = ' '
-            print(i,jr,x,yr,board[i][jr])
             undoMove(i,jr,x,yr,board[i][yr],remvi,'',cl,dept)
 
 def makeMove(i,j,x,y,bij,remvp):
     global hashing
     global points
+
+    # print(i,j,board[i][j],bij,remvp,bp,wp)
 
     if remvp != ' ':
         if remvp.islower():
@@ -586,26 +1337,66 @@ def makeMove(i,j,x,y,bij,remvp):
     else:
         wp[board[i][j]].remove([i,j])
         wp[bij].append([x,y])
-    if bij == 'k' and abs(y-j) == 2:
-        print(i,j,x,y,bij,remvp)
     hashing ^= zobrist[pos.index(board[i][j])][j + i * 8]
     hashing ^= zobrist[pos.index(bij)][y + x * 8]
     points += pointDist[bij]*mapper[bij][x][y]
     points -= pointDist[board[i][j]]*mapper[board[i][j]][i][j]
-    board[x][y] = str(bij)
+    board[x][y] = bij
     board[i][j] = ' '
 
-def legalMoves(cl,check):
-    global inCheck
-    global points
-    global drishti
+def preprocess(cl):
+    global wattack
+    global battack
+    global wl
+    global bl
+    global bill
+    global will
+    global bcheck
+    global wcheck
     if cl:
-        drishti['wk'] = 'yes'
-        drishti['wq'] = 'yes'
+        battack = []
+        will = {}
+        wl = []
+        wcheck = False
     else:
-        drishti['bk'] = 'yes'
-        drishti['bq'] = 'yes'
+        bill = {}
+        wattack = []
+        bl = []
+        bcheck = False
+    if cl:
+        it = copy.deepcopy(bp)
+    else:
+        it = copy.deepcopy(wp)
+    # print(it)
+    for key,val in it.items():
+        for pos in val:
+            i = pos[0]
+            j = pos[1]
+            if key.lower() == 'p':
+                pawn(i,j)
+            elif key.lower() == 'r':
+                straight(i,j)
+            elif key.lower() == 'b':
+                diagnol(i,j)
+            elif key.lower() == 'n':
+                knight(i,j)
+            elif key.lower() == 'k':
+                king(i,j)
+            elif key.lower() == 'q':
+                diagnol(i,j) + straight(i,j)
+
+def legalMoves(cl,check):
+    global points
+    global will
+    global bill
+    global wattack
+    global battack
+    global wl
+    global bl
+    global bcheck
+    global wcheck
     lega = []
+    preprocess(cl == False)
     if cl:
         it = copy.deepcopy(bp)
     else:
@@ -627,21 +1418,38 @@ def legalMoves(cl,check):
                 ls = king(i,j)
             elif key.lower() == 'q':
                 ls = diagnol(i,j) + straight(i,j)
+            if (cl and j + i * 8 in bill):
+                ind = 0
+                while ind < len(ls):
+                    if ls[ind] in bill[j + i * 8]:
+                        ind += 1
+                    else:
+                        ls.pop(ind)
+                # print(ls)
+                # print(ls,bill,key,i,j)
+            elif (cl == False and j + i * 8 in will):
+                ind = 0
+                while ind < len(ls):
+                    if ls[ind] in will[j + i * 8]:
+                        ind += 1
+                    else:
+                        ls.pop(ind)
+            # if len(bill) > 0:
+            #     print(bill)
+            # if len(will) > 0:
+            #     print(will)
+                # print(ls,will,key,i,j)
+
             # print(ls)
             for k in ls:
-                if board[k[0]][k[1]].lower() == 'k': 
-                    return 'Illegal'
-                if k[0] == 0 and key.isupper():
-                    if k[1] == 1 or k[1] == 2 or k[1] == 3 or k[1] == 4:
-                        drishti['bq'] = True
-                    if k[1] == 6 or k[1] == 5 or k[1] == 4:
-                        drishti['bk'] = True
-                if k[0] == 7 and key.islower():
-                    if k[1] == 1 or k[1] == 2 or k[1] == 3 or k[1] == 4:
-                        drishti['wq'] = True
-                    if k[1] == 6 or k[1] == 5 or k[1] == 4:
-                        drishti['wk'] = True
+                if (cl and bcheck and key.lower() != 'k'):
+                    if k not in bl:
+                        continue
+                if (cl == False and wcheck and key.lower() != 'k'):
+                    if k not in wl:
+                        continue
                 iterSequence = key
+                gon = board[k[0]][k[1]]
                 if key == 'p' and i == 6:
                     iterSequence = 'nbqr'
                 elif key == 'P' and i == 1:
@@ -654,19 +1462,19 @@ def legalMoves(cl,check):
                     if key.lower() == 'k':
                         if abs(k[1] - j) == 2:
                             castle = True
-                    if board[k[0]][k[1]] != ' ':
-                        points -= pointDist[board[k[0]][k[1]]]*mapper[board[k[0]][k[1]]][k[0]][k[1]]
+                    if gon != ' ':
+                        points -= pointDist[gon]*mapper[gon][k[0]][k[1]]
                     lega.append((moveMaker(board[i][j],i,j,k[0],k[1],it,castle),points))
                     points += pointDist[board[i][j]]*mapper[board[i][j]][i][j]
                     points -= pointDist[it]*mapper[it][k[0]][k[1]]
-                    if board[k[0]][k[1]] != ' ':
-                        points += pointDist[board[k[0]][k[1]]]*mapper[board[k[0]][k[1]]][k[0]][k[1]]
+                    if gon != ' ':
+                        points += pointDist[gon]*mapper[gon][k[0]][k[1]]
     if cl:
         lega.sort(key=lambda x:x[1])
         # print(lega)
     else:
         lega.sort(key=lambda x:x[1],reverse=True)
-    # print(lega)
+        # print(cl,bp,wp)
     return lega
 
 # def playMove(move):
@@ -693,7 +1501,6 @@ def legalMoves(cl,check):
 
 def compute(cl,depth,curv,leg):
     global hashing
-    global counter
     global points
     if hashing in transPositionMap and transPositionMap[hashing]['depth'] >= depth:
         if cl == False:
@@ -703,21 +1510,18 @@ def compute(cl,depth,curv,leg):
             rs = transPositionMap[hashing]['score'][0]
             rm = transPositionMap[hashing]['move'][0]
         return [rs,rm]
-        
     mn = 'nope'
     mnm = ''
     mx = 'nope'
     mxm = ''
-    checkMate = True
     iterList = leg
     # print(iterList)
     for z in iterList:
         r = 'WOWW'
-        counter += 1
         move = z[0]
-
-        j = marking.index(move[0])
-        y = marking.index(move[3])
+        # print(z)
+        j = numberMap[move[0]]
+        y = numberMap[move[3]]
         i = 8 - int(move[1])
         x = 8 - int(move[4])
         remvp = str(board[x][y])
@@ -777,9 +1581,7 @@ def compute(cl,depth,curv,leg):
             elif cl != False and mn != 'nope':
                 cur = mn
             legIter = legalMoves(cl == False,False)
-            if legIter != 'Illegal':
-                r = compute(cl == False, depth - 1,cur,legIter)
-                checkMate = False
+            r = compute(cl == False, depth - 1,cur,legIter)
             
             # print(r)
             if r != 'nope' and r[0] != 'nope' and r != 'WOWW':
@@ -788,13 +1590,8 @@ def compute(cl,depth,curv,leg):
                 undoMove(i,j,x,y,bij,remvp,move,cl,depth)
                 continue
         else:
-            if legalMoves(cl == False,False) != 'Illegal':
-                r = points
-                checkMate = False
+            r = points
                 # print(move)
-            else:
-                undoMove(i,j,x,y,bij,remvp,move,cl,depth)
-                continue
         if curv != 'init':
             if cl == False:
                 if r > curv:
@@ -820,15 +1617,16 @@ def compute(cl,depth,curv,leg):
             if r == mx:
                 mxm = move
         # print(r,move)
-    if checkMate:
-        if legalMoves(cl == False,False) == 'Illegal':
+    if len(leg) == 0:
             # print('mhm',cl,bp,wp,depth)
-            if cl == False:
-                return [-10000*(depth + 1),'10']
-            return [10000*(depth + 1),'10']
         if cl == False:
+            if wcheck:
+                return [-10000*(depth + 1),'10']
             return [0,'10']
-        return [0,'10']
+        else:
+            if bcheck:
+                return [10000*(depth + 1),'10']
+            return [0,'10']
     transPositionMap[hashing] = {'depth':depth,'move':[mnm,mxm],'score':[mn,mx]}
     if cl == False:
         return [mx,mxm]
