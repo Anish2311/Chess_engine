@@ -135,7 +135,7 @@ wattack = []
 battack = []
 will = {}
 bill = {}
-depth = 5
+depth = 3
 app = FastAPI()
 
 app.add_middleware(
@@ -145,6 +145,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def health() :
+    return "ok"
 
 @app.post("/upload")
 async def upload_file(
